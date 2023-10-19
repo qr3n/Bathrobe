@@ -1,34 +1,48 @@
-# npm-react-typescript-template
+# Bathrobe
+A library that simplifies context management in steps. Animations are provided as a bonus.
 
-A template for publishing a React + TypeScript package to npm
+# How to use
 
-## How to use
+```tsx
+import { BathrobeProvider, useBathrobeContext, useSteps } from "bathrobe";
+import { useState } from 'react'
 
-Fork this repo, clone it to your local computer, and edit the `package.json` along with every other required file to match your project.
-Write the code for your package in TypeScript and Sass, compile it, and publish it to [npm](https://npmjs.com).
+interface ISomeContextData {
+  hello: string,
+  world: string
+}
 
-To compile your code once, run
+const SomeSteps = () => {
+  const steps = useSteps<ISomeContextData>(3, {
+    hello: 'Hello',
+    world: 'World'
+  })
 
-- `npm run build`.
+  return (
+    <BathrobeProvider steps={steps}>
+      <Step1/>
+      <Step2/>
+    </BathrobeProvider>
+  )
+}
 
-To compile your code once and refresh on file change, run
+const Step1 = () => {
+  const { hello } = useBathrobeContext<ISomeContextData>()
+  
+  return (
+    <h1>
+      { hello }
+    </h1>
+  )
+}
 
-- `npm run start`.
+const Step2 = () => {
+  const { world } = useBathrobeContext<ISomeContextData>()
 
-To publish your package to npm, make sure you're logged in the correct account by running
-
-- `npm login`.
-
-Compile your package by running
-
-- `npm run build`
-
-Update the package version accordingly by using
-
-- [`npm version [patch | minor | major]`](https://docs.npmjs.com/about-semantic-versioning)
-
-Then publish your package by running
-
-- `npm publish`
-
-### Happy Building ♡
+  return (
+    <h1>
+      { world }
+    </h1>
+  )
+}
+```

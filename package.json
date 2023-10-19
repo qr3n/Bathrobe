@@ -1,8 +1,8 @@
 {
-  "name": "npm-react-typescript-template",
+  "name": "react-bathrobe",
   "version": "1.0.0",
   "description": "A template for publishing a React + TypeScript package to npm",
-  "author": "ovieokeh",
+  "author": "qr3n",
   "license": "Apache-2.0",
   "repository": "ovieokeh/npm-react-typescript-template",
   "main": "dist/index.js",
@@ -14,22 +14,22 @@
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
-  "dependencies": {},
   "peerDependencies": {
-    "react": ">= 16.8.0 < 2",
-    "react-dom": ">= 16.8.0 < 2"
+    "react": ">= 18.2.0",
+    "react-dom": ">= 18.2.0"
   },
+  "skipLibCheck": true,
   "devDependencies": {
-    "@types/react": "^16.3.13",
-    "@types/react-dom": "^16.0.5",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rollup": "^1.29.0",
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.25.3",
-    "typescript": "^2.8.3"
+    "typescript": "^5.2.2"
   },
   "files": [
     "dist"
@@ -38,5 +38,8 @@
     "react",
     "typescript",
     "npm"
-  ]
+  ],
+  "dependencies": {
+    "framer-motion": "^10.16.4"
+  }
 }
